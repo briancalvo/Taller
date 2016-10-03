@@ -22,20 +22,13 @@ public class MainVehiculos {
 
         System.out.println(registro.obtenerTodos());
 
-        registro.obtenerVehiculo("4749JAV")
-                .ifPresent(
-                        coche -> System.out.println("Coche con matricula 4749JAV: "+ coche)
-                );
-
-        registro
-                .obtenerVehiculoPrecioMax()
-                // esta expresión es equivalente a verificar diferente de null con Java 8
-                .ifPresent(
-                        coche -> System.out.println("Coche Max precio: "+ coche)
-                );
+        registro.obtenerVehiculo("4749JAV").ifPresent(coche -> System.out.println("Coche con matricula 4749JAV: "+ coche));
+        registro.obtenerVehiculosMarca("Lexus").forEach(coche -> System.out.println(coche));
+        /** esto es un bucle traidicional expresado con Java 8 **/
+        registro.obtenerVehiculoPrecioMax().ifPresent(coche -> System.out.println("Coche Max precio: "+ coche));
+        /** esta expresión es equivalente a verificar diferente de null con Java 8 **/
         System.out.println("Eliminando coche con matricula 1234ENG");
-        registro
-                .eliminarVehiculo("1234ENG");
+        registro.eliminarVehiculo("1234ENG");
 
         System.out.println(registro.obtenerTodos());
     }

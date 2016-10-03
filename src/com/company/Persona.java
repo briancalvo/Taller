@@ -8,17 +8,15 @@ public class Persona {
     private String num_ss;
     private String nombre;
     private String apellido1;
-    private String apellido2;
     private Integer edad;
     private Double salario;
 
     /** Constructores **/
-    public Persona(String dni, String num_ss, String nombre, String apellido1, String apellido2, Integer edad, Double salario) {
+    public Persona(String dni, String num_ss, String nombre, String apellido1, Integer edad, Double salario) {
         this.dni = dni;
         this.num_ss = num_ss;
         this.nombre = nombre;
         this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
         this.edad = edad;
         this.salario = salario;
     }
@@ -34,9 +32,6 @@ public class Persona {
     }
     public String getApellido1() {
         return apellido1;
-    }
-    public String getApellido2() {
-        return apellido2;
     }
     public Integer getEdad() {
         return edad;
@@ -57,9 +52,6 @@ public class Persona {
     public void setApellido1(String apellido1) {
         this.apellido1 = apellido1;
     }
-    public void setApellido2(String apellido2) {
-        this.apellido2 = apellido2;
-    }
     public void setEdad(Integer edad) {
         this.edad = edad;
     }
@@ -77,7 +69,6 @@ public class Persona {
         if (num_ss != null ? !num_ss.equals(persona.num_ss) : persona.num_ss != null) return false;
         if (nombre != null ? !nombre.equals(persona.nombre) : persona.nombre != null) return false;
         if (apellido1 != null ? !apellido1.equals(persona.apellido1) : persona.apellido1 != null) return false;
-        if (apellido2 != null ? !apellido2.equals(persona.apellido2) : persona.apellido2 != null) return false;
         if (edad != null ? !edad.equals(persona.edad) : persona.edad != null) return false;
         return salario != null ? salario.equals(persona.salario) : persona.salario == null;
 
@@ -89,7 +80,6 @@ public class Persona {
         result = 31 * result + (num_ss != null ? num_ss.hashCode() : 0);
         result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
         result = 31 * result + (apellido1 != null ? apellido1.hashCode() : 0);
-        result = 31 * result + (apellido2 != null ? apellido2.hashCode() : 0);
         result = 31 * result + (edad != null ? edad.hashCode() : 0);
         result = 31 * result + (salario != null ? salario.hashCode() : 0);
         return result;
@@ -102,7 +92,6 @@ public class Persona {
                 ", num_ss='" + num_ss + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellido1='" + apellido1 + '\'' +
-                ", apellido2='" + apellido2 + '\'' +
                 ", edad=" + edad +
                 ", salario=" + salario +
                 '}';

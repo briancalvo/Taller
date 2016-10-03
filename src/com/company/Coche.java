@@ -7,10 +7,10 @@ public class Coche {
     private String matricula;
     private String marca;
     private String modelo;
-    private Double precio;
+    private int precio;
 
     /** Contructores **/
-    public Coche(String matricula, String marca, String modelo, Double precio) {
+    public Coche(String matricula, String marca, String modelo, int precio) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -29,7 +29,7 @@ public class Coche {
         return modelo;
     }
 
-    public Double getPrecio() {
+    public int getPrecio() {
         return precio;
     }
     /** Setters **/
@@ -45,7 +45,7 @@ public class Coche {
         this.modelo = modelo;
     }
 
-    public void setPrecio(Double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
     /** Equals & HashCode **/
@@ -56,10 +56,10 @@ public class Coche {
 
         Coche coche = (Coche) o;
 
+        if (precio != coche.precio) return false;
         if (matricula != null ? !matricula.equals(coche.matricula) : coche.matricula != null) return false;
         if (marca != null ? !marca.equals(coche.marca) : coche.marca != null) return false;
-        if (modelo != null ? !modelo.equals(coche.modelo) : coche.modelo != null) return false;
-        return precio != null ? precio.equals(coche.precio) : coche.precio == null;
+        return modelo != null ? modelo.equals(coche.modelo) : coche.modelo == null;
 
     }
 
@@ -68,9 +68,10 @@ public class Coche {
         int result = matricula != null ? matricula.hashCode() : 0;
         result = 31 * result + (marca != null ? marca.hashCode() : 0);
         result = 31 * result + (modelo != null ? modelo.hashCode() : 0);
-        result = 31 * result + (precio != null ? precio.hashCode() : 0);
+        result = 31 * result + precio;
         return result;
     }
+
     /** ToString **/
     @Override
     public String toString() {
