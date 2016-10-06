@@ -7,8 +7,9 @@ import java.util.TreeMap;
  * Created by Brian on 03/10/2016.
  */
 public class Taller {
+    // Ordenar TreeMap por la edad de las personas
     private Map<Persona,Coche> reparaciones =
-            new TreeMap<>(Comparator.comparing(Persona::getNum_ss));
+            new TreeMap<>(Comparator.comparing(Persona::getEdad));
 
     public void registrarReparacion(Persona persona, Coche coche){
         reparaciones.putIfAbsent(persona,coche);
